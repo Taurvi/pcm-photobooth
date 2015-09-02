@@ -1,0 +1,10 @@
+{
+  "name": "pcm-photobooth",
+  "version": "1.0.0",
+  "description": "A photobooth app for PCM.",
+  "dependencies": {
+    "delivery": "0.0.3",
+    "express": "^4.13.3",
+    "gm": "^1.18.1"
+  }
+}
