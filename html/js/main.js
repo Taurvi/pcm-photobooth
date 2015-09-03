@@ -9,32 +9,15 @@ var clientMsg = function(msg) {
     console.log('<<<CLIENT>>> ' + msg);
 }
 
+var ngApp = angular.module('ngApp', []);
 
+ngApp.filter('capitalize', function() {
+    return function(input, all) {
+        return (!!input) ? input.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+    }});
 
-function take_snapshot() {
-    Webcam.snap( function(data_uri) {
-        document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-    } );
-}
+ngApp.controller('ngCtrlPrimary', ['$scope', function($scope) {
+    $scope.photoTaken = false;
+    $scope.borderType = "Select a Border";
+}]);
 
-/*
-$(function(){
-    var socket = io.connect('http://localhost:3000');
-
-    socket.on('connect', function(){
-        var delivery = new Delivery(socket);
-
-        delivery.on('receive.start',function(fileUID){
-            clientMsg('Receiving a file!');
-        });
-
-        delivery.on('receive.success',function(file){
-            clientMsg('File received!');
-            if (file.isImage()) {
-                $('img').attr('src', file.dataURL());
-
-
-            };
-        });
-    });
-});*/

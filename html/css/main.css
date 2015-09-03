@@ -1,3 +1,39 @@
 #test {
     font-size: 100px;
 }
+
+.main-container {
+    background-image: url('../img/cam-bg.png');
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 21px;
+    height: 515px;
+    width: 680px;
+    z-index: 1;
+}
+
+video, #result {
+    position: relative;
+    z-index: -1;
+}
+
+#name-input {
+    padding-top: 10px;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#loading {
+    padding-top: 30px;
+}
+
+#post-buttons {
+    display: none;
+}
+
+#form-email {
+    display: none;
+}
