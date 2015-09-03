@@ -46,7 +46,7 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
 </header>
 <script>
     $(function(){
-        var socket = io.connect('http://45.55.26.110/:3000');
+        var socket = io.connect('http://45.55.26.110:3000');
         socket.on('connect', function(){
             socket.emit('generate_image', $('#code').val(), $('#name').val(), $('#border').val());
 
