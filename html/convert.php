@@ -16,7 +16,7 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>UW-PCM Photobooth</title>
     <!-- JQuery 2.1.4 -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- Bootstrap 3.3.5 CSS -->
