@@ -15,7 +15,9 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UW-PCM Photobooth</title>
     <!-- JQuery 2.1.4 -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -109,5 +111,12 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
         </form>
     </div>
 </div>
+
+<footer class="navbar navbar-fixed-bottom">
+    <div class="col-centered col-lg-5">
+        <p><a href="http://na.leagueoflegends.com/" target="_blank">League of Legends</a> and all associated images are the property of <a href="http://www.riotgames.com/" target="_blank>">Riot Games</a></p>
+        <p>Designed by Stephen (Taurvi) Rimbakusumo (<a href="https://github.com/Taurvi/" target="_blank"><i class="fa fa-github"></i></a> <a href="https://twitter.com/taurvi" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com/taurvi23"><i class="fa fa-facebook-official"></i></a>) for the University of Washington <a href="https://www.facebook.com/groups/uwupcm/?fref=ts" target="_blank">Union of Purple Caster Minions</a>.</p>
+    </div>
+</footer>
 </body>
 </html>

@@ -46,3 +46,11 @@ video, #result {
 #loadCam {
     padding-top: 220px;
 }
+
+body {
+    padding-bottom: 215px;
+}
+
+footer {
+    font-size: .8em;
+}
