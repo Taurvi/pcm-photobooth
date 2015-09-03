@@ -40,4 +40,9 @@ video, #result {
 
 #failCam {
     display: none;
+    padding-top: 220px;
+}
+
+#loadCam {
+    padding-top: 220px;
 }

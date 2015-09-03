@@ -27,14 +27,21 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="text-center" ng-app="ngApp" ng-controller="ngCtrlPrimary">
+<div>
 <header class="col-centered">
     <img src="img/logo.png">
 </header>
 <div class="main-container col-centered" id="cameraBox">
+    <div class="" id="loadCam" role="alert">
+        <div class="alert alert-info  col-centered col-lg-6">
+            <i class="fa fa-refresh fa-spin"></i>
+            Webcam libraries are loading.
+        </div>
+    </div>
     <div id="camera"></div>
     <div id="result"></div>
 </div>
-<div id="buttons">
+<div id="buttons" ng-hide="!checkLive">
     <button type="button" onclick="javascript:void(take_snapshot())" ng-disabled="photoTaken" ng-click="photoTaken = true" class="btn btn-primary btn-lg">
     <i class="fa fa-camera"></i> Take Photo
     </button>
@@ -55,8 +62,19 @@
     });
     Webcam.attach( '#camera' );
 
+    Webcam.on( 'load', function() {
+        $('#loadCam').css('display', 'initial');
+
+    } );
+
+    Webcam.on( 'live', function() {
+        $('#loadCam').css('display', 'none');
+        $('#failCam').css('display', 'none');
+    } );
+
     Webcam.on( 'error', function(err) {
         $('#failCam').css('display', 'initial');
+        $('#loadCam').css('display', 'none');
         $('#buttons').css('display', 'none');
         $('#successForm').css('display', 'none');
         $('#cameraBox').css('display', 'none');
@@ -75,6 +93,9 @@
     var resetSnapshot = function() {
         $('#camera').css('display', 'initial');
         $('#result').css('display', 'none');
+
+        setTimeout(function(){ location.reload(); }, 15000);
+
     }
 </script>
 <form action="convert.php" id="successForm" method="post" class="">
@@ -105,8 +126,9 @@
     <div class="alert alert-danger  col-centered col-lg-6">
         <i class="fa fa-exclamation-triangle"></i>
         <span class="sr-only">Error:</span>
-        A webcam is required in order to continue.
+        A webcam is required in order to continue.<br>
     </div>
+</div>
 </div>
 </body>
 </html>
