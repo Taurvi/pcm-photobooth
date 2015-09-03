@@ -23,20 +23,25 @@
     <!-- delivery.js -->
     <script src="js/delivery.js"></script>
 
-    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="text-center" ng-app="ngApp" ng-controller="ngCtrlPrimary">
-<div class="main-container col-centered">
+<header class="col-centered">
+    <img src="img/logo.png">
+</header>
+<div class="main-container col-centered" id="cameraBox">
     <div id="camera"></div>
     <div id="result"></div>
 </div>
-<button type="button" onclick="javascript:void(take_snapshot())" ng-disabled="photoTaken" ng-click="photoTaken = true" class="btn btn-primary btn-lg">
+<div id="buttons">
+    <button type="button" onclick="javascript:void(take_snapshot())" ng-disabled="photoTaken" ng-click="photoTaken = true" class="btn btn-primary btn-lg">
     <i class="fa fa-camera"></i> Take Photo
-</button>
-<button type="button" onclick="javascript:void(resetSnapshot())" ng-disabled="!photoTaken" ng-click="photoTaken = false" class="btn btn-danger btn-lg">
-    <i class="fa fa-user-times"></i> Reset Photo
-</button>
+    </button>
+    <button type="button" onclick="javascript:void(resetSnapshot())" ng-disabled="!photoTaken" ng-click="photoTaken = false" class="btn btn-danger btn-lg">
+        <i class="fa fa-user-times"></i> Reset Photo
+    </button>
+</div>
 
 <script language="JavaScript">
     var data;
@@ -49,6 +54,13 @@
         force_flash: false
     });
     Webcam.attach( '#camera' );
+
+    Webcam.on( 'error', function(err) {
+        $('#failCam').css('display', 'initial');
+        $('#buttons').css('display', 'none');
+        $('#successForm').css('display', 'none');
+        $('#cameraBox').css('display', 'none');
+    } );
 
     function take_snapshot() {
         Webcam.snap( function(data_uri) {
@@ -65,7 +77,7 @@
         $('#result').css('display', 'none');
     }
 </script>
-<form action="convert.php" method="post" class="">
+<form action="convert.php" id="successForm" method="post" class="">
     <div class="col-lg-4 col-centered" id="name-input" ng-hide="!photoTaken">
         <div class="input-group">
             <div class="input-group-btn">
@@ -82,11 +94,19 @@
             <input type="hidden" ng-value="borderType" id="borderType" name="borderType">
             <input type="text" ng-model="summonerName" ng-maxlength="30" class="form-control" id="summonerName" name="summonerName" placeholder="Enter your name">
       <span class="input-group-btn">
-        <button class="btn btn-success" ng-disabled="!summonerName" type="submit">Submit</button>
+        <button class="btn btn-success" ng-disabled="!summonerName || borderType == 'Select a Border'" type="submit">Submit</button>
       </span>
         </div>
     </div>
     <input type="hidden" id="base" name="base" value="">
 </form>
+
+<div class="" id="failCam" role="alert">
+    <div class="alert alert-danger  col-centered col-lg-6">
+        <i class="fa fa-exclamation-triangle"></i>
+        <span class="sr-only">Error:</span>
+        A webcam is required in order to continue.
+    </div>
+</div>
 </body>
 </html>

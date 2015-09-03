@@ -37,3 +37,7 @@ video, #result {
 #form-email {
     display: none;
 }
+
+#failCam {
+    display: none;
+}

@@ -37,7 +37,7 @@ io.sockets.on('connection', function(socket){
 
         serverMsg('Generating image.')
         gm('img/raw/' + code + '-' + name + '.png')
-            .crop(245, 376, 150, 100)
+            .crop(245, 376, 200, 54)
             .write('img/steps/resize.png', function (err) {
                 if (!err) {
                     serverMsg(  'Stage 1: Merge with blank.')

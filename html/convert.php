@@ -41,9 +41,12 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
 
 </head>
 <body class="text-center">
+<header class="col-centered">
+    <img src="img/logo.png">
+</header>
 <script>
     $(function(){
-        var socket = io.connect('http://localhost:3000');
+        var socket = io.connect('http://45.55.26.110:3000');
         socket.on('connect', function(){
             socket.emit('generate_image', $('#code').val(), $('#name').val(), $('#border').val());
 
@@ -58,7 +61,7 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
                 $('#loading').css('display', 'none');
                 $('#post-buttons').css('display', 'initial');
                 if (file.isImage()) {
-                    $('img').attr('src', file.dataURL());
+                    $('#final').attr('src', file.dataURL());
 
 
                 };
@@ -75,7 +78,7 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
         <i class="fa fa-refresh fa-spin fa-5x"></i><br>
         <h4>Your picture is currently being processed.</h4>
     </div>
-    <img>
+    <img id="final">
 
     <br>
     <div id="post-buttons">
@@ -101,7 +104,7 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
                 <input type="text" class="form-control" placeholder="What is your summoner name?">
             </div>
 
-            <button class="btn btn-success btn-lg"><i class="fa fa-upload"></i> Send</button>
+            <button class="btn btn-success btn-lg" disabled><i class="fa fa-upload"></i> Send</button>
         </form>
     </div>
 </div>
