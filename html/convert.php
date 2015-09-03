@@ -46,7 +46,7 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
 </header>
 <script>
     $(function(){
-        var socket = io.connect('http://45.55.26.110:3000');
+        var socket = io.connect('http://localhost:3000');
         socket.on('connect', function(){
             socket.emit('generate_image', $('#code').val(), $('#name').val(), $('#border').val());
 
@@ -89,6 +89,7 @@ $file_name =  $today['year'] . '' . $today['mon'] . ''  . $today['mday'] . '-' .
     </div>
     <div id="form-email">
         <form class="col-lg-4 col-centered" style="padding-top: 10px;" role="form">
+            <div class="alert alert-warning" role="alert"><i class="fa fa-wrench"></i> Email function is currently unavailable.</div>
                 <div class="form-group input-group">
                     <span class="input-group-addon" id="sizing-addon2">Email</span>
                     <input type="text" class="form-control" placeholder="Email Address">
