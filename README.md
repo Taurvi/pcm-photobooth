@@ -9,3 +9,6 @@ This application was designed for use by the University of Washington Union of P
 
 
 League of Legends and all associated images are the property of Riot Games.
+
+
+[Live Test](http://45.55.26.110/pcm-photobooth/html/index.php)
